@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Teknamin Labs</title>
+        <link>https://www.teknamin.com</link>
+        <description>Writing and research notes from Teknamin Labs.</description>
+        <lastBuildDate>Sat, 17 Jan 2026 23:23:30 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <copyright>© 2026 Teknamin Labs</copyright>
+        <item>
+            <title><![CDATA[HNIR: Control Planes for Long-Running Conversational Systems]]></title>
+            <link>https://www.teknamin.com/blog/hnir-control-planes/</link>
+            <guid isPermaLink="false">https://www.teknamin.com/blog/hnir-control-planes/</guid>
+            <pubDate>Sat, 17 Jan 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[A short introduction to Hybrid Neuro-Symbolic Intent Routing (HNIR) and why deterministic control planes matter for production conversational systems.]]></description>
+        </item>
+    </channel>
+</rss>
