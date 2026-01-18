@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import { Feed } from "feed";
 
-const SITE_URL = process.env.SITE_URL || "https://teknamin.github.io";
+const SITE_URL = process.env.SITE_URL || "https://www.teknamin.com";
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 
 function getPosts() {
