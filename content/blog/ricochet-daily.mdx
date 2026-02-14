@@ -5,47 +5,45 @@ tags: ["Game Development", "Prototyping", "AI-Assisted Development", "Reddit"]
 summary: "Notes on designing and building a daily ball-bouncing puzzle game for the Reddit platform as part of the Reddit Daily Games Hackathon 2026."
 ---
 
-Ricochet Daily is a daily puzzle game that runs natively on Reddit. Players aim and fire a ball into an 8x8 grid of walls, bouncing it through orange targets. Three shots, five targets, one puzzle per day. Results are shareable in Wordle-style emoji grids.
+Ricochet Daily is a daily puzzle game that runs natively on Reddit. Players fire a ball into an 8x8 grid of walls, bouncing it through orange targets. Three shots, five targets, one puzzle per day.
 
-This note covers the key technical decisions and what was interesting about the build.
-
-**Play it:** [www.teknamin.com/ricochet-daily](https://www.teknamin.com/ricochet-daily)
-**Source:** [github.com/Teknamin/ricochet-daily](https://github.com/Teknamin/ricochet-daily)
-**Hackathon:** [Devpost submission](https://devpost.com/software/ricochet-daily)
+[Play it](https://www.teknamin.com/ricochet-daily) | [Source](https://github.com/Teknamin/ricochet-daily) | [Devpost](https://devpost.com/software/ricochet-daily)
 
 ---
 
 ## Deterministic daily puzzles
 
-The central constraint was that every player must see the same puzzle on the same day. The solution is a seeded pseudorandom number generator — Mulberry32, seeded with the date as an integer (`YYYYMMDD`). This produces identical wall placement, target positions, and launch points for all players worldwide, without any server coordination.
+The central constraint: every player must see the same puzzle on the same day.
 
-The approach is the same one Wordle uses: the puzzle is a pure function of the date.
+The solution is a seeded PRNG — Mulberry32, seeded with the date as an integer (`YYYYMMDD`). This produces identical wall placement, target positions, and launch points for all players worldwide, without any server coordination. The same approach Wordle uses. The puzzle is a pure function of the date.
 
 ## Ball physics on a grid
 
-The ball moves in sub-steps (4 pixels per frame) and checks for wall crossings at each step. Walls are stored as two boolean arrays — horizontal walls on row edges, vertical walls on column edges. When the ball crosses from one grid cell into another, it checks whether a wall exists on that edge and reflects accordingly.
+The ball moves in sub-steps (4 pixels per frame) and checks for wall crossings at each step. Walls are stored as two boolean arrays — horizontal walls on row edges, vertical walls on column edges.
 
-Corner cases (literally — the ball hitting where two walls meet diagonally) required special handling: checking both horizontal and vertical walls when the ball changes row and column simultaneously.
+When the ball crosses from one grid cell into another, it checks whether a wall exists on that edge and reflects accordingly. Corner cases (literally — the ball hitting where two walls meet diagonally) required checking both horizontal and vertical walls simultaneously.
 
-The physics are simple but the constraint of running at 60fps on Canvas 2D inside a Reddit iframe kept the implementation honest. No physics library, no game engine runtime — just arithmetic and a `requestAnimationFrame` loop.
+No physics library, no game engine runtime. Just arithmetic and a `requestAnimationFrame` loop running at 60fps on Canvas 2D inside a Reddit iframe.
 
 ## Platform constraints
 
-Reddit's Devvit platform runs the game inside an iframe with a serverless Node.js backend. The backend (Hono on Devvit) handles player authentication, state persistence, and leaderboards via Redis. The frontend is an HTML5 Canvas rendered entirely in TypeScript.
+Reddit's Devvit platform runs the game inside an iframe with a serverless Node.js backend. The backend uses Hono on Devvit for player authentication, state persistence, and leaderboards via Redis. The frontend is an HTML5 Canvas rendered entirely in TypeScript.
 
-The GameMaker IDE was used to prototype and compile to WebAssembly, but the final game logic lives in a single TypeScript file (~600 lines). The compiled WASM runtime is included for the GameMaker rendering pipeline, though the standalone web version runs pure Canvas 2D.
+GameMaker was used to prototype and compile to WebAssembly, but the final game logic lives in a single TypeScript file — roughly 600 lines.
 
 ## AI-assisted development
 
-This project was built with substantial use of large language models as a development tool. The workflow was iterative: describe intent, review generated code, test, refine. The physics engine, collision detection, and UI layout all went through multiple cycles of this.
+This project was built with substantial use of large language models as a development tool. The workflow was iterative: describe intent, review generated code, test, refine.
 
-What worked well: rapid prototyping of game mechanics, exploring the Devvit API surface, and scaffolding server routes. What required careful human judgment: getting the collision detection edge cases right, tuning the game feel (screen shake, trail rendering, aim constraints), and making architectural decisions about what belongs on the client vs. server.
+What worked well: rapid prototyping of game mechanics, exploring the Devvit API surface, and scaffolding server routes.
 
-The term "vibe coding" has emerged to describe this style of development. In practice, it is closer to directing than writing — you remain the architect, but the iteration speed changes fundamentally.
+What required human judgment: getting collision detection edge cases right, tuning the game feel (screen shake, trail rendering, aim constraints), and making architectural decisions about what belongs on the client vs. server.
+
+The term "vibe coding" has emerged for this style of development. In practice it is closer to directing than writing — you remain the architect, but iteration speed changes fundamentally.
 
 ## What I would change
 
-The game could benefit from predicted trajectory visualization (showing the first few bounces before firing), better mobile touch feedback, and a more polished game-over screen with animated statistics. The daily puzzle generation could also be more sophisticated — currently walls are placed independently, which occasionally produces trivially easy or frustratingly blocked layouts.
+The game could benefit from predicted trajectory visualization (showing bounces before firing), better mobile touch feedback, and animated statistics on the game-over screen. The daily puzzle generation could also be smarter — currently walls are placed independently, which occasionally produces trivially easy or blocked layouts.
 
 ---
 

@@ -2,38 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.teknamin.com/</loc>
-    <lastmod>2026-01-18T02:40:54.036Z</lastmod>
+    <lastmod>2026-02-14T04:43:32.004Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/about/</loc>
-    <lastmod>2026-01-18T02:40:54.036Z</lastmod>
+    <lastmod>2026-02-14T04:43:32.004Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/hnir/</loc>
-    <lastmod>2026-01-18T02:40:54.036Z</lastmod>
+    <lastmod>2026-02-14T04:43:32.004Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/archive/</loc>
-    <lastmod>2026-01-18T02:40:54.036Z</lastmod>
+    <lastmod>2026-02-14T04:43:32.004Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/blog/</loc>
-    <lastmod>2026-01-18T02:40:54.036Z</lastmod>
+    <lastmod>2026-02-14T04:43:32.004Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/blog/hnir-control-planes/</loc>
-    <lastmod>2026-01-18T02:40:54.036Z</lastmod>
+    <lastmod>2026-02-14T04:43:32.004Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.teknamin.com/blog/ricochet-daily/</loc>
+    <lastmod>2026-02-14T04:43:32.004Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/tags/hnir/</loc>
-    <lastmod>2026-01-18T02:40:54.036Z</lastmod>
+    <lastmod>2026-02-14T04:43:32.004Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/tags/ai-control-planes/</loc>
-    <lastmod>2026-01-18T02:40:54.036Z</lastmod>
+    <lastmod>2026-02-14T04:43:32.004Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/tags/distributed-systems/</loc>
-    <lastmod>2026-01-18T02:40:54.036Z</lastmod>
+    <lastmod>2026-02-14T04:43:32.004Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.teknamin.com/tags/game-development/</loc>
+    <lastmod>2026-02-14T04:43:32.004Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.teknamin.com/tags/prototyping/</loc>
+    <lastmod>2026-02-14T04:43:32.004Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.teknamin.com/tags/ai-assisted-development/</loc>
+    <lastmod>2026-02-14T04:43:32.004Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.teknamin.com/tags/reddit/</loc>
+    <lastmod>2026-02-14T04:43:32.004Z</lastmod>
   </url>
 </urlset>
