@@ -4,11 +4,18 @@
         <title>Teknamin Labs</title>
         <link>https://www.teknamin.com</link>
         <description>Writing and research notes from Teknamin Labs.</description>
-        <lastBuildDate>Sat, 14 Feb 2026 04:43:31 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 26 Feb 2026 04:22:48 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>© 2026 Teknamin Labs</copyright>
+        <item>
+            <title><![CDATA[HNIR-CCP: A Deterministic Control Plane for AI Systems]]></title>
+            <link>https://www.teknamin.com/blog/hnir-ccp-control-plane/</link>
+            <guid isPermaLink="false">https://www.teknamin.com/blog/hnir-ccp-control-plane/</guid>
+            <pubDate>Thu, 26 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Introducing HNIR-CCP — a deterministic control plane that governs policy, state transitions, and execution in AI systems, independent of probabilistic model behavior.]]></description>
+        </item>
         <item>
             <title><![CDATA[Building Ricochet Daily: A Daily Puzzle Game for Reddit]]></title>
             <link>https://www.teknamin.com/blog/ricochet-daily/</link>
