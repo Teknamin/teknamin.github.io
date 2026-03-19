@@ -1,4 +1,5 @@
 import { getAllPosts } from "@/lib/content";
+import Link from "next/link";
 
 function tagToSlug(tag: string) {
   return tag.trim().toLowerCase().replace(/\s+/g, "-");
@@ -31,23 +32,23 @@ export default async function TagPage({
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
-      <a className="underline underline-offset-4 opacity-80" href="/blog/">
+      <Link className="site-link-muted underline underline-offset-4" href="/blog/">
         ← Back to Writing
-      </a>
+      </Link>
 
       <h1 className="mt-6 text-3xl font-semibold tracking-tight">#{displayTag}</h1>
 
       <div className="mt-10 space-y-8">
         {posts.map((p) => (
           <article key={p.slug}>
-            <a
-              className="text-lg font-semibold underline underline-offset-4"
+            <Link
+              className="site-link-muted text-lg font-semibold underline underline-offset-4"
               href={`/blog/${p.slug}/`}
             >
               {p.title}
-            </a>
-            <div className="mt-1 text-sm opacity-70">{p.date}</div>
-            <p className="mt-2 opacity-90">{p.summary}</p>
+            </Link>
+            <div className="site-meta mt-1 text-sm">{p.date}</div>
+            <p className="mt-2 site-soft">{p.summary}</p>
           </article>
         ))}
       </div>

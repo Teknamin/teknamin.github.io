@@ -1,9 +1,16 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root,
+:root[data-theme="light"] {
+  --background: #f7f8fa;
+  --foreground: #1a1f2c;
+  --muted-foreground: #4a5568;
+  --soft-foreground: #2f3a4b;
+  --divider: #c7d2df;
+  --accent: #1e40af;
+  --accent-strong: #1e3a8a;
+  color-scheme: light;
 }
 
 @theme inline {
@@ -14,14 +21,150 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme]) {
+    --background: #0d1117;
+    --foreground: #e6edf3;
+    --muted-foreground: #9aa4b2;
+    --soft-foreground: #c5d0db;
+    --divider: #2f3f53;
+    --accent: #93c5fd;
+    --accent-strong: #bfdbfe;
+    color-scheme: dark;
   }
+}
+
+:root[data-theme="dark"] {
+    --background: #0d1117;
+    --foreground: #e6edf3;
+    --muted-foreground: #9aa4b2;
+    --soft-foreground: #c5d0db;
+    --divider: #2f3f53;
+    --accent: #93c5fd;
+    --accent-strong: #bfdbfe;
+    color-scheme: dark;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 50;
+  border: 1px solid var(--divider);
+  background: color-mix(in oklab, var(--background) 94%, var(--foreground));
+  color: var(--soft-foreground);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease;
+}
+
+.theme-toggle:hover {
+  color: var(--foreground);
+  border-color: color-mix(in oklab, var(--divider) 55%, var(--accent));
+  background: color-mix(in oklab, var(--background) 88%, var(--foreground));
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.site-text {
+  color: var(--foreground);
+}
+
+.site-soft {
+  color: var(--soft-foreground);
+}
+
+.site-muted {
+  color: var(--muted-foreground);
+}
+
+.site-meta {
+  color: color-mix(in oklab, var(--foreground) 62%, var(--background));
+}
+
+.site-divider {
+  border-color: var(--divider);
+}
+
+.site-list {
+  color: var(--soft-foreground);
+}
+
+.site-list :where(li)::marker {
+  color: color-mix(in oklab, var(--foreground) 58%, var(--background));
+}
+
+.site-link {
+  color: var(--accent);
+  text-decoration-color: color-mix(in oklab, var(--accent) 50%, transparent);
+  text-underline-offset: 3px;
+}
+
+.site-link:hover {
+  color: var(--accent-strong);
+  text-decoration-color: var(--accent-strong);
+}
+
+.site-link-muted {
+  color: color-mix(in oklab, var(--foreground) 78%, var(--background));
+  text-decoration-color: color-mix(in oklab, var(--foreground) 38%, transparent);
+  text-underline-offset: 3px;
+}
+
+.site-link-muted:hover {
+  color: var(--accent);
+  text-decoration-color: color-mix(in oklab, var(--accent) 62%, transparent);
+}
+
+.blog-prose {
+  color: var(--foreground);
+}
+
+.blog-prose :where(p, li) {
+  color: color-mix(in oklab, var(--foreground) 84%, var(--background));
+}
+
+.blog-prose :where(ul > li, ol > li)::marker {
+  color: color-mix(in oklab, var(--foreground) 58%, var(--background));
+}
+
+.blog-prose :where(a) {
+  color: var(--accent);
+  text-decoration-color: color-mix(in oklab, var(--accent) 48%, transparent);
+  text-underline-offset: 3px;
+}
+
+.blog-prose :where(a:hover) {
+  color: var(--accent-strong);
+  text-decoration-color: var(--accent-strong);
+}
+
+.blog-prose :where(strong, h1, h2, h3, h4, h5, h6, code, th) {
+  color: var(--foreground);
+}
+
+.blog-prose :where(blockquote) {
+  color: var(--muted-foreground);
+  border-left-color: color-mix(in oklab, var(--accent) 45%, var(--background));
+}
+
+.blog-prose :where(hr, thead, tbody tr) {
+  border-color: color-mix(in oklab, var(--foreground) 22%, transparent);
+}
+
+.blog-prose :where(pre) {
+  background: color-mix(in oklab, var(--foreground) 10%, var(--background));
+  color: var(--foreground);
 }

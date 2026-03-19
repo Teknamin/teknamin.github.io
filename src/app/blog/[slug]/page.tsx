@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/content";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import Link from "next/link";
 
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
@@ -22,27 +23,27 @@ export default async function BlogPostPage({
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
-      <a className="underline underline-offset-4 opacity-80" href="/blog/">
+      <Link className="site-link-muted underline underline-offset-4" href="/blog/">
         ← Back to Writing
-      </a>
+      </Link>
 
       <h1 className="mt-6 text-3xl font-semibold tracking-tight">{post.title}</h1>
-      <div className="mt-2 text-sm opacity-70">{post.date}</div>
+      <div className="site-meta mt-2 text-sm">{post.date}</div>
 
       <div className="mt-6 flex flex-wrap gap-2">
         {post.tags.map((t) => (
-          <a
+          <Link
             key={t}
-            className="text-xs underline underline-offset-4 opacity-80"
+            className="site-link-muted text-xs underline underline-offset-4"
             href={`/tags/${tagToSlug(t)}/`}
           >
             #{t}
-          </a>
+          </Link>
         ))}
       </div>
 
-      <article className="prose prose-invert mt-10 max-w-none">
-      <MDXRemote source={post.content} />
+      <article className="blog-prose prose prose-neutral mt-10 max-w-none dark:prose-invert">
+        <MDXRemote source={post.content} />
       </article>
     </main>
   );
