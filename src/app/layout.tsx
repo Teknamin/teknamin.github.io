@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/site";
+import ThemeToggle from "@/components/theme-toggle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,16 +32,37 @@ export const metadata: Metadata = {
   }
 };
 
+const themeInitScript = `
+(() => {
+  try {
+    const key = "teknamin-theme";
+    const stored = window.localStorage.getItem(key);
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const theme = stored === "light" || stored === "dark"
+      ? stored
+      : (prefersDark ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  } catch {
+    // no-op
+  }
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script
+          dangerouslySetInnerHTML={{
+            __html: themeInitScript
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -62,6 +84,7 @@ export default function RootLayout({
             })
           }}
         />
+        <ThemeToggle />
         {children}
       </body>
     </html>
