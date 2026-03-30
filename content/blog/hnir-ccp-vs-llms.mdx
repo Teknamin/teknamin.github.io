@@ -1,0 +1,164 @@
+---
+title: "HNIR-CCP vs LLMs: What 100 Governance Scenarios Actually Show"
+date: "2026-03-29"
+tags: ["AI Safety", "Control Planes", "LLM Evaluation", "Governance"]
+summary: "An empirical follow-up to the HNIR-CCP control-plane architecture — comparing deterministic governance against frontier LLMs and guardrail frameworks across 100 structured scenarios."
+---
+
+Most AI agent systems today make the same architectural assumption:
+
+**Route everything through an LLM — even when the task is deterministic.**
+
+In the [previous post](/blog/hnir-ccp-control-plane), I introduced HNIR-CCP, a deterministic control plane designed to intercept and handle governance-critical operations before they reach an LLM.
+
+This post answers a simple question:
+
+**Does that actually matter in practice?**
+
+To test this, I ran a structured evaluation comparing HNIR-CCP against multiple frontier LLMs and guardrail frameworks.
+
+## Evaluation setup
+
+The goal was not to benchmark general intelligence, but to isolate governance behavior.
+
+### Systems evaluated
+
+- GPT-4o
+- o3 (reasoning model)
+- Claude Sonnet
+- Claude Opus
+- Gemini 2.5 Pro
+- NeMo Guardrails
+- Guardrails AI
+- HNIR-CCP (deterministic baseline)
+
+### Scenario design
+
+100 structured scenarios across four categories:
+
+| Category | Count |
+|---|---|
+| Adversarial | 30 |
+| Control commands | 20 |
+| Policy enforcement | 30 |
+| State transitions | 20 |
+
+Each scenario was executed 5 times per system to measure consistency.
+
+### Critical control: Temperature = 0
+
+All LLM evaluations were run with `temperature = 0`. This removes sampling variability and ensures deterministic decoding, repeatable outputs, and no "worst-case cherry-picking."
+
+The goal was to evaluate **capability**, not randomness.
+
+## Results
+
+### 1. Governance compliance
+
+| System | Compliance |
+|---|---|
+| HNIR-CCP | **100%** |
+| Claude Opus | 91% |
+| o3 | 87% |
+| Claude Sonnet | 81% |
+| Gemini 2.5 Pro | 80% |
+| GPT-4o | 79% |
+| NeMo Guardrails | 48% |
+| Guardrails AI | 37% |
+
+No LLM reached full compliance. Even with explicit policy prompting, failures persist.
+
+### 2. Latency
+
+| System | Latency |
+|---|---|
+| HNIR-CCP | ~0.04 ms (40.6 us) |
+| GPT-4o | ~0.7 s |
+| Claude Sonnet | ~1.1 s |
+| Claude Opus | ~1.9 s |
+| Gemini 2.5 Pro | ~5.7 s |
+
+HNIR-CCP is ~17,000x faster than GPT-4o and ~140,000x faster than Gemini.
+
+### 3. Cost
+
+| System | Cost per 100 scenarios |
+|---|---|
+| HNIR-CCP | $0.00 |
+| GPT-4o | $0.233 |
+| o3 | $0.480 |
+| Claude Opus | $1.657 |
+
+LLM governance is not just inconsistent — it's expensive at scale.
+
+### 4. Consistency and "confident-but-wrong"
+
+A key failure pattern emerged: models often give the same answer repeatedly — and that answer is wrong.
+
+Formally, this means >=80% agreement across runs with 0% correctness. This is labeled **confident-but-wrong**.
+
+| System | Confident-but-wrong |
+|---|---|
+| NeMo | 50% |
+| Claude Sonnet | 25% |
+| GPT-4o | 24% |
+| o3 | 20% |
+| Claude Opus | 18% |
+
+This is not randomness. It is **systematic failure under deterministic decoding**.
+
+## What this actually means
+
+This is the key takeaway:
+
+**Governance is not a reasoning problem. It is a control problem.**
+
+LLMs are probabilistic, context-sensitive, and non-reproducible under edge conditions. That's fine for summarization, generation, and open-ended reasoning.
+
+But it breaks for access control, state validation, and policy enforcement.
+
+## The architectural shift
+
+Instead of:
+
+```
+User -> LLM -> Everything else
+```
+
+HNIR-CCP introduces:
+
+```
+User -> Control Plane -> (LLM only if needed)
+```
+
+Where:
+
+- **Control commands** are handled deterministically
+- **Policy** is enforced before inference
+- **Invalid transitions** never reach the model
+
+## What this is NOT claiming
+
+This is not "LLMs are bad" or "LLMs should not be used."
+
+This is:
+
+**LLMs are the wrong abstraction for certain classes of problems.**
+
+## Full paper
+
+The full evaluation, methodology, and results are available here:
+
+[https://zenodo.org/records/19324744](https://zenodo.org/records/19324744)
+
+## Reference implementation
+
+HNIR-CCP implementation:
+
+[https://github.com/Teknamin/hnir-ccp](https://github.com/Teknamin/hnir-ccp)
+
+---
+
+**Source:** https://github.com/Teknamin/hnir-ccp
+**Lab:** https://www.teknamin.com
+**Author:** https://www.raviaravind.com

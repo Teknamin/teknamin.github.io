@@ -2,74 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.teknamin.com/</loc>
-    <lastmod>2026-02-26T04:22:48.638Z</lastmod>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/about/</loc>
-    <lastmod>2026-02-26T04:22:48.638Z</lastmod>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/hnir/</loc>
-    <lastmod>2026-02-26T04:22:48.638Z</lastmod>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/archive/</loc>
-    <lastmod>2026-02-26T04:22:48.638Z</lastmod>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/blog/</loc>
-    <lastmod>2026-02-26T04:22:48.638Z</lastmod>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/blog/hnir-ccp-control-plane/</loc>
-    <lastmod>2026-02-26T04:22:48.638Z</lastmod>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.teknamin.com/blog/hnir-ccp-vs-llms/</loc>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/blog/hnir-control-planes/</loc>
-    <lastmod>2026-02-26T04:22:48.638Z</lastmod>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/blog/ricochet-daily/</loc>
-    <lastmod>2026-02-26T04:22:48.638Z</lastmod>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/tags/ai-safety/</loc>
-    <lastmod>2026-02-26T04:22:48.638Z</lastmod>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/tags/control-planes/</loc>
-    <lastmod>2026-02-26T04:22:48.638Z</lastmod>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/tags/distributed-systems/</loc>
-    <lastmod>2026-02-26T04:22:48.638Z</lastmod>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/tags/llm-architecture/</loc>
-    <lastmod>2026-02-26T04:22:48.638Z</lastmod>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.teknamin.com/tags/llm-evaluation/</loc>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.teknamin.com/tags/governance/</loc>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/tags/hnir/</loc>
-    <lastmod>2026-02-26T04:22:48.638Z</lastmod>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/tags/ai-control-planes/</loc>
-    <lastmod>2026-02-26T04:22:48.638Z</lastmod>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/tags/game-development/</loc>
-    <lastmod>2026-02-26T04:22:48.638Z</lastmod>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/tags/prototyping/</loc>
-    <lastmod>2026-02-26T04:22:48.638Z</lastmod>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/tags/ai-assisted-development/</loc>
-    <lastmod>2026-02-26T04:22:48.638Z</lastmod>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
   </url>
   <url>
     <loc>https://www.teknamin.com/tags/reddit/</loc>
-    <lastmod>2026-02-26T04:22:48.638Z</lastmod>
+    <lastmod>2026-03-30T03:20:13.143Z</lastmod>
   </url>
 </urlset>
