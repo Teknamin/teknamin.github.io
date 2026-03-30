@@ -36,12 +36,20 @@ The goal was not to benchmark general intelligence, but to isolate governance be
 
 100 structured scenarios across four categories:
 
-| Category | Count |
-|---|---|
-| Adversarial | 30 |
-| Control commands | 20 |
-| Policy enforcement | 30 |
-| State transitions | 20 |
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Adversarial</td><td>30</td></tr>
+    <tr><td>Control commands</td><td>20</td></tr>
+    <tr><td>Policy enforcement</td><td>30</td></tr>
+    <tr><td>State transitions</td><td>20</td></tr>
+  </tbody>
+</table>
 
 Each scenario was executed 5 times per system to measure consistency.
 
@@ -55,39 +63,63 @@ The goal was to evaluate **capability**, not randomness.
 
 ### 1. Governance compliance
 
-| System | Compliance |
-|---|---|
-| HNIR-CCP | **100%** |
-| Claude Opus | 91% |
-| o3 | 87% |
-| Claude Sonnet | 81% |
-| Gemini 2.5 Pro | 80% |
-| GPT-4o | 79% |
-| NeMo Guardrails | 48% |
-| Guardrails AI | 37% |
+<table>
+  <thead>
+    <tr>
+      <th>System</th>
+      <th>Compliance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>HNIR-CCP</td><td><strong>100%</strong></td></tr>
+    <tr><td>Claude Opus</td><td>91%</td></tr>
+    <tr><td>o3</td><td>87%</td></tr>
+    <tr><td>Claude Sonnet</td><td>81%</td></tr>
+    <tr><td>Gemini 2.5 Pro</td><td>80%</td></tr>
+    <tr><td>GPT-4o</td><td>79%</td></tr>
+    <tr><td>NeMo Guardrails</td><td>48%</td></tr>
+    <tr><td>Guardrails AI</td><td>37%</td></tr>
+  </tbody>
+</table>
 
 No LLM reached full compliance. Even with explicit policy prompting, failures persist.
 
 ### 2. Latency
 
-| System | Latency |
-|---|---|
-| HNIR-CCP | ~0.04 ms (40.6 us) |
-| GPT-4o | ~0.7 s |
-| Claude Sonnet | ~1.1 s |
-| Claude Opus | ~1.9 s |
-| Gemini 2.5 Pro | ~5.7 s |
+<table>
+  <thead>
+    <tr>
+      <th>System</th>
+      <th>Latency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>HNIR-CCP</td><td>~0.04 ms (40.6 &micro;s)</td></tr>
+    <tr><td>GPT-4o</td><td>~0.7 s</td></tr>
+    <tr><td>Claude Sonnet</td><td>~1.1 s</td></tr>
+    <tr><td>Claude Opus</td><td>~1.9 s</td></tr>
+    <tr><td>Gemini 2.5 Pro</td><td>~5.7 s</td></tr>
+  </tbody>
+</table>
 
 HNIR-CCP is ~17,000x faster than GPT-4o and ~140,000x faster than Gemini.
 
 ### 3. Cost
 
-| System | Cost per 100 scenarios |
-|---|---|
-| HNIR-CCP | $0.00 |
-| GPT-4o | $0.233 |
-| o3 | $0.480 |
-| Claude Opus | $1.657 |
+<table>
+  <thead>
+    <tr>
+      <th>System</th>
+      <th>Cost per 100 scenarios</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>HNIR-CCP</td><td>$0.00</td></tr>
+    <tr><td>GPT-4o</td><td>$0.233</td></tr>
+    <tr><td>o3</td><td>$0.480</td></tr>
+    <tr><td>Claude Opus</td><td>$1.657</td></tr>
+  </tbody>
+</table>
 
 LLM governance is not just inconsistent — it's expensive at scale.
 
@@ -97,13 +129,21 @@ A key failure pattern emerged: models often give the same answer repeatedly — 
 
 Formally, this means >=80% agreement across runs with 0% correctness. This is labeled **confident-but-wrong**.
 
-| System | Confident-but-wrong |
-|---|---|
-| NeMo | 50% |
-| Claude Sonnet | 25% |
-| GPT-4o | 24% |
-| o3 | 20% |
-| Claude Opus | 18% |
+<table>
+  <thead>
+    <tr>
+      <th>System</th>
+      <th>Confident-but-wrong</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>NeMo</td><td>50%</td></tr>
+    <tr><td>Claude Sonnet</td><td>25%</td></tr>
+    <tr><td>GPT-4o</td><td>24%</td></tr>
+    <tr><td>o3</td><td>20%</td></tr>
+    <tr><td>Claude Opus</td><td>18%</td></tr>
+  </tbody>
+</table>
 
 This is not randomness. It is **systematic failure under deterministic decoding**.
 
