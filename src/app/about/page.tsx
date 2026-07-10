@@ -4,8 +4,7 @@ export default function AboutPage() {
       <h1 className="text-3xl font-semibold tracking-tight">About Teknamin Labs</h1>
 
       <p className="mt-8 leading-7 site-soft">
-        Teknamin Labs is not a company or a product. It is a long-running independent research and
-        writing practice focused on systems, technology, and intelligence.
+        Teknamin Labs is an independent research and writing practice focused on AI control planes, distributed systems, deterministic software architecture, and long-running AI applications.
       </p>
 
       <p className="mt-4 leading-7 site-soft">
