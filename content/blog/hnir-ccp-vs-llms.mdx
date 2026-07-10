@@ -55,7 +55,7 @@ Each scenario was executed 5 times per system to measure consistency.
 
 ### Critical control: Temperature = 0
 
-All LLM evaluations were run with `temperature = 0`. This removes sampling variability and ensures deterministic decoding, repeatable outputs, and no "worst-case cherry-picking."
+All LLM evaluations were run with temperature set to 0. This reduces sampling variance, but it does not guarantee identical behavior across provider revisions, serving infrastructure, or upstream model changes.
 
 The goal was to evaluate **capability**, not randomness.
 
