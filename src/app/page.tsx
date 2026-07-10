@@ -9,7 +9,7 @@ export default function HomePage() {
       </p>
 
       <p className="mt-8 leading-7 site-soft">
-        An ideas lab exploring systems, technology, and intelligence. Teknamin began in 2015 as
+        Teknamin Labs is an independent research practice for AI control planes, distributed systems, and long-running software architecture. Teknamin began in 2015 as
         <em> Technology in a Minute</em> and has evolved into deeper inquiry: how systems are designed,
         how intelligence is shaped, and how ideas move from abstraction to reality.
       </p>
