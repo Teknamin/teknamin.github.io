@@ -5,7 +5,7 @@ export default function HomePage() {
     <main className="mx-auto max-w-3xl px-6 py-16">
       <h1 className="text-4xl font-semibold tracking-tight">Teknamin Labs</h1>
       <p className="mt-3 text-lg site-muted">
-        Independent research practice (est. 2015)
+        Teknamin Labs is an independent research practice for AI control planes, distributed systems, and long-running software architecture.
       </p>
 
       <p className="mt-8 leading-7 site-soft">
