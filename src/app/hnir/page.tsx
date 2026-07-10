@@ -44,7 +44,7 @@ export default function HnirPage() {
           </a>
         </p>
         <p className="site-soft">
-          This page will host the canonical HNIR overview, diagrams, and links.
+          This page collects the HNIR preprint, implementation links, and evaluation notes for deterministic intent routing in distributed conversational systems.
         </p>
       </div>
     </main>
