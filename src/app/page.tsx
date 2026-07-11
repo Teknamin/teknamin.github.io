@@ -1,3 +1,19 @@
+export const metadata = {
+  title: "Teknamin Labs | AI Control Planes and Distributed Systems Research",
+  description: "Independent research lab for AI control planes, distributed systems, and long-running software architecture.",
+  canonical: "/",
+  openGraph: {
+    title: "Teknamin Labs | AI Control Planes and Distributed Systems Research",
+    description: "Independent research lab for AI control planes, distributed systems, and long-running software architecture.",
+    url: "/",
+    type: "website"
+  },
+  twitter: {
+    title: "Teknamin Labs | AI Control Planes and Distributed Systems Research",
+    description: "Independent research lab for AI control planes, distributed systems, and long-running software architecture."
+  }
+};
+
 import Link from "next/link";
 
 export default function HomePage() {
