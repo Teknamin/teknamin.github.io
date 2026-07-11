@@ -1,5 +1,11 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Teknamin Labs | AI Control Planes and Distributed Systems Research",
+  description: "Independent research lab for AI control planes, distributed systems, and long-running software architecture.",
+  canonicalUrl: "https://teknamin.com",
+};
+
 export default function HomePage() {
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
