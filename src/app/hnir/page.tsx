@@ -1,3 +1,20 @@
+export const metadata = {
+  title: { absolute: "HNIR | Deterministic Intent Routing Control Plane" },
+  description: "HNIR is Teknamin Labs' deterministic intent-routing control plane work for distributed conversational systems.",
+  alternates: { canonical: "/hnir/" },
+  openGraph: {
+    title: "HNIR | Deterministic Intent Routing Control Plane",
+    description: "HNIR is Teknamin Labs' deterministic intent-routing control plane work for distributed conversational systems.",
+    url: "/hnir/",
+    type: "article"
+  },
+  twitter: {
+    card: "summary",
+    title: "HNIR | Deterministic Intent Routing Control Plane",
+    description: "HNIR is Teknamin Labs' deterministic intent-routing control plane work for distributed conversational systems."
+  }
+};
+
 import { SITE } from "@/lib/site";
 
 export default function HnirPage() {
