@@ -1,3 +1,20 @@
+export const metadata = {
+  title: { absolute: 'About | Teknamin Labs' },
+  description: 'About Teknamin Labs, an independent research practice for AI control planes, distributed systems, and long-running software architecture.',
+  alternates: { canonical: '/about/' },
+  openGraph: {
+    title: 'About | Teknamin Labs',
+    description: 'About Teknamin Labs, an independent research practice for AI control planes, distributed systems, and long-running software architecture.',
+    url: '/about/',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'About | Teknamin Labs',
+    description: 'About Teknamin Labs, an independent research practice for AI control planes, distributed systems, and long-running software architecture.',
+  },
+};
+
 export default function AboutPage() {
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
