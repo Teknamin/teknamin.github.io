@@ -1,3 +1,23 @@
+export const metadata = {
+  title: { absolute: "Writing | Teknamin Labs" },
+  description:
+    "Research notes from Teknamin Labs on AI control planes, distributed systems, evaluation, and software architecture.",
+  alternates: { canonical: "/blog/" },
+  openGraph: {
+    title: "Writing | Teknamin Labs",
+    description:
+      "Research notes from Teknamin Labs on AI control planes, distributed systems, evaluation, and software architecture.",
+    url: "/blog/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Writing | Teknamin Labs",
+    description:
+      "Research notes from Teknamin Labs on AI control planes, distributed systems, evaluation, and software architecture.",
+  },
+};
+
 import { getAllPosts } from "@/lib/content";
 import Link from "next/link";
 
