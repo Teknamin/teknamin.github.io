@@ -3,6 +3,32 @@ import { getAllPosts, getPostBySlug } from "@/lib/content";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
+  if (!post) {
+    notFound();
+  }
+  return {
+    title: post.title,
+    description: post.summary,
+    alternates: { canonical: `/blog/${post.slug}/` },
+    openGraph: {
+      title: post.title,
+      description: post.summary,
+      url: `/blog/${post.slug}/`,
+      type: "article",
+      publishedTime: post.date,
+      tags: post.tags
+    },
+    twitter: {
+      card: "summary",
+      title: post.title,
+      description: post.summary
+    }
+  };
+}
+
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
 }
